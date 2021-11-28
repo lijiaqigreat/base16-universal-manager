@@ -196,6 +196,8 @@ func getSavePath(path, defaultFilename string) (string, error) {
 		savePath = path
 	}
 
+	path = os.ExpandEnv(path)
+
 	if strings.HasSuffix(path, "/") {
 		err := os.MkdirAll(savePath, os.ModePerm)
 		if err != nil {
